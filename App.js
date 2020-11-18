@@ -1,4 +1,4 @@
-import { FlatList, Platform, SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Platform, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 import React from 'react';
 
@@ -20,10 +20,10 @@ export default function App() {
       <FlatList
         data={cities}
         renderItem={({ item }) => (
-          <View style={styles.item}>
+          <TouchableOpacity style={styles.item} onPress={() => console.warn(item.name)}>
             <Text style={styles.textName}>{item.name}</Text>
             <Text style={styles.textCountry}>{item.country}</Text>
-          </View>
+          </TouchableOpacity>
         )}
         keyExtractor={item => item.id.toString()}
       />
